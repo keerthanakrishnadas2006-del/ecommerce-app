@@ -2,6 +2,14 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import pkg from "pg";
+import { serve } from "https://deno.land/std/http/server.ts";
+
+serve(async (req) => {
+  return new Response(JSON.stringify({ message: "Backend working!" }), {
+    headers: { "Content-Type": "application/json" },
+  });
+});
+
 const { Pool } = pkg;
 
 dotenv.config();
